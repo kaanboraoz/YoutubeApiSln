@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using YoutubeApi.Application.Interfaces.Repositories;
 using YoutubeApi.Persistance.Context;
+using YoutubeApi.Persistance.Repositories;
 
 namespace YoutubeApi.Persistance
 {
@@ -12,6 +14,8 @@ namespace YoutubeApi.Persistance
         {
             services.AddDbContext<AppDbContext>(opt => 
             opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
         }
     }
 }
