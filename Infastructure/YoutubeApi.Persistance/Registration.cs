@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using YoutubeApi.Application.Interfaces.Repositories;
+using YoutubeApi.Application.Interfaces.UnitOfWorks;
 using YoutubeApi.Persistance.Context;
 using YoutubeApi.Persistance.Repositories;
+using YoutubeApi.Persistance.UnitOfWorks;
 
 namespace YoutubeApi.Persistance
 {
@@ -17,6 +19,8 @@ namespace YoutubeApi.Persistance
 
             services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
             services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+            
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
