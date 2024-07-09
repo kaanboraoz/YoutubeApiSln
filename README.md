@@ -1,6 +1,6 @@
 # YoutubeApiSln
 
-.NET, CQRS, UnitOfWork and Onion Architecture Tutorial Project
+.NET, CQRS, UnitOfWork, MediatR and Onion Architecture Tutorial Project
 
 
 ### Connection String in Development Environment
